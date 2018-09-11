@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}JOIN{% endblock %}
+{% block body %}
+    <h2>To JOIN our membership</h2>
+{% if error %}
+    <div class=error><strong>Error:</strong> {{ error }}</div>
+{% endif %}
+    <form action="" method=post>
+        <dl>
+            <dt>ID:</dt>
+            <dd><input type=text name=username size=30 value="{{ request.form.username }}"></dd>
+            <dt>phone number:</dt>
+            <dd><input type=text name=phone size=30 value="{{ request.form.phone }}"></dd>
+            <dt>license number:</dt>
+            <dd><input type=text name=num size=30 value="{{ request.form.num }}"></dd>
+            <dt>car model:</dt>
+            <dd><input type=text name=model size=30 value="{{ request.form.model }}"></dd>
+            <dt>Password:</dt>
+            <dd><input type=password name=password size=30></dd>
+            <dt>Confirm Password:</dt>
+            <dd><input type=password name=password2 size=30></dd>
+        </dl>
+        <div class=actions><input type=submit value="Sign Up"></div>
+    </form>
+{% endblock %}
