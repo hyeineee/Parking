@@ -1,0 +1,35 @@
+<!doctype html>
+<title>{% block title %}Welcome{% endblock %} | MiniTwit</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+    <h1>SMART PARKING</h1>
+    <div class=navigation>
+        {% if g.user %}
+            <a href="{{ url_for('Introduce') }}">Introduce</a> |
+            <a href="{{ url_for('empty') }}">Empty Seats</a> |
+            <a href="{{ url_for('reserve') }}">Reservation/Renew</a> |
+            <a href="{{ url_for('payment') }}">Payment</a> |        
+            <a href="{{ url_for('mypage') }}">MY PAGE</a> |
+            <a href="{{ url_for('logout') }}">LOGOUT[{{ g.user.username }}]</a>
+        {% else %}
+            <a href="{{ url_for('Introduce') }}">Introduce</a> |
+            <a href="{{ url_for('register') }}">JOIN</a> |
+            <a href="{{ url_for('login') }}">LOGIN</a>
+        {% endif %}
+    </div>
+    {% with flashes = get_flashed_messages() %}
+        {% if flashes %}
+            <ul class=flashes>
+                {% for message in flashes %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class=body>
+        {% block body %}{% endblock %}
+    </div>
+    <div class=footer>
+        SMART PARKING &mdash; Kim&Baeg&Lees
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Reservation/Renew{% endblock %}
+{% block body %}
+<h2>Reservation</h2>
+{% if error %}
+    <div class=error><strong>Error:</strong> {{ error }}</div>
+{% endif %}
+
+<h2>Renew</h2>
+{% if error %}
+    <div class=error><strong>Error:</strong> {{ error }}</div>
+{% endif %}
+
+{% endblock %}
